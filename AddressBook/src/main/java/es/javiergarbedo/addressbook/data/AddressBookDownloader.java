@@ -25,7 +25,7 @@ public class AddressBookDownloader extends AsyncTask<String, Void, Void> {
     private final String NAMESPACE = null;
     private XmlPullParser parser = Xml.newPullParser();
 
-    private static final String TAG_XML = "address_book";
+    private static final String TAG_XML = "persons";
     private static final String TAG_REGISTRO = "person";
     private ArrayList<Person> listaDatos;
     private Context context;

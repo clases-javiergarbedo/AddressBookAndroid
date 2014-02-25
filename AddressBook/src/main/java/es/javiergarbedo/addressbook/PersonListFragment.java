@@ -51,7 +51,7 @@ public class PersonListFragment extends ListFragment {
 
         //Descargar los datos del documento XML
         AddressBookDownloader senderoDownloader = new AddressBookDownloader(context, this);
-        senderoDownloader.execute("http://pruebas.javiergarbedo.es/addressbook.xml");
+        senderoDownloader.execute("http://pruebas.javiergarbedo.es/address_book.xml");
         //Mostrar la lista que haya de momento en la BD, hasta que finalice la descarga anterior
         showPersonList();
     }
