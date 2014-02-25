@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import es.javiergarbedo.addressbook.data.Person;
@@ -41,7 +42,8 @@ public class PersonDetailFragment extends Fragment {
 //            ((TextView) rootView.findViewById(R.id.person_detail)).setText(mItem.content);
 //        }
         if(person != null) {
-            ((TextView) rootView.findViewById(R.id.person_detail)).setText(person.getName());
+            ((EditText) rootView.findViewById(R.id.editTextName)).setText(person.getName());
+            ((EditText) rootView.findViewById(R.id.editTextSurnames)).setText(person.getSurnames());
         }
 
         return rootView;
