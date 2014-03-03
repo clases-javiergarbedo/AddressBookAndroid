@@ -160,7 +160,7 @@ public class AddressBookDBManagerAndroid {
         dbAddressBook.execSQL(sql);
     }
     
-    public void deletePersonById(String id) {
+    public void deletePersonById(int id) {
         String sql = "DELETE FROM person WHERE id="+id;
         Log.d(AddressBookDBManagerAndroid.class.getName(), "Executing SQL statement: " + sql);
         dbAddressBook.execSQL(sql);

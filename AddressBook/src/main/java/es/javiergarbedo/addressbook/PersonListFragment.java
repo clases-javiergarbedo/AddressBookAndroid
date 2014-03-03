@@ -22,6 +22,10 @@ public class PersonListFragment extends ListFragment {
     private Callbacks mCallbacks = sDummyCallbacks;
     private int mActivatedPosition = ListView.INVALID_POSITION;
 
+    //Direcciones desde las que se obtendrán los datos
+    public static final String URL_DATA = "http://pruebas.javiergarbedo.es/address_book.xml";
+    public static final String URL_IMAGES = "http://pruebas.javiergarbedo.es/uploadFiles/";
+
     //Almacenará el contexto (Activity) en el que se encuentra este fragment, ya que será necesario para abrir la BD
     private Context context;
 
@@ -50,9 +54,9 @@ public class PersonListFragment extends ListFragment {
 //                DummyContent.ITEMS));
 
         //Descargar los datos del documento XML
-        AddressBookDownloader senderoDownloader = new AddressBookDownloader(context, this);
-        senderoDownloader.execute("http://pruebas.javiergarbedo.es/address_book.xml");
-        //Mostrar la lista que haya de momento en la BD, hasta que finalice la descarga anterior
+        AddressBookDownloader addressBookDownloader = new AddressBookDownloader(context, this);
+        addressBookDownloader.execute(URL_DATA);
+        // Mostrar la lista que haya de momento en la BD, hasta que finalice la descarga anterior
         showPersonList();
     }
 

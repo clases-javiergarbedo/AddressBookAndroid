@@ -166,5 +166,9 @@ public class Person {
         return name + " " + surnames;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        return this.id == ((Person)o).getId();
+    }
 }
 

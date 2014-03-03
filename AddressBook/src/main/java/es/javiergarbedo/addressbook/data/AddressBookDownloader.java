@@ -76,7 +76,7 @@ public class AddressBookDownloader extends AsyncTask<String, Void, Void> {
                     mobileNumber = readText(tagName);
                 } else if (tagName.equals("address")) {
                     address = readText(tagName);
-                } else if (tagName.equals("postCode")) {
+                } else if (tagName.equals("post_code")) {
                     postCode = readText(tagName);
                 } else if (tagName.equals("city")) {
                     city = readText(tagName);
@@ -124,8 +124,25 @@ public class AddressBookDownloader extends AsyncTask<String, Void, Void> {
                 Log.d(AddressBookDownloader.class.getName(), "Id no encontrado. Se insertará el registro");
                 //Si no existe, se inserta
                 addressBookDBManagerAndroid.insertPerson(person);
+            } else {
+                Log.d(AddressBookDownloader.class.getName(), "Id existente. Se actualizará el registro");
+                //Ya existe un contacto con ese id, se actualiza con los datos descargados
+                addressBookDBManagerAndroid.updatePerson(person);
             }
         }
+
+        //Borrar los contactos del teléfono que no estén en el XML descargado
+        ArrayList<Person> personsListDB = addressBookDBManagerAndroid.getPersonsList();
+        //Se recorre cada persona de la BD local comprobando si existen en los datos del documento XML
+        for (Person person : personsListDB) {
+            //Para comparar si dos personas son iguales se ha sobrecargado el método equals en la clase Person
+            if(listaDatos.indexOf(person)==-1) {
+                Log.d(AddressBookDownloader.class.getName(), "Persona a eliminar: " +person.toString());
+                //Si se observa que no está en el XML, se elimina de la BD
+                addressBookDBManagerAndroid.deletePersonById(person.getId());
+            }
+        }
+
         //Mostrar la lista una vez finalizada la descarga
         personListFragment.showPersonList();
     }

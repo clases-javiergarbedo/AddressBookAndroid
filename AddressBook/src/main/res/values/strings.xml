@@ -3,5 +3,18 @@
 
     <string name="app_name">AddressBook</string>
     <string name="title_person_detail">Person Detail</string>
+    <string name="name">Name</string>
+    <string name="surnames">Surnames</string>
+    <string name="alias">Alias</string>
+    <string name="email">email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="address">Address</string>
+    <string name="post_code">Post Code</string>
+    <string name="city">City</string>
+    <string name="province">Province</string>
+    <string name="country">Country</string>
+    <string name="birthdate">Birthdate</string>
+    <string name="comments">Comments</string>
 
 </resources>
